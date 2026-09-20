@@ -188,7 +188,7 @@ export default function PuertaApp() {
                 <p style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>¡ACCESO PERMITIDO!</p>
               )}
               
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', margin: '15px 0' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', margin: '15px 0' }}>
                 <div style={{ background: 'rgba(255,255,255,0.5)', padding: '10px', borderRadius: '8px' }}>
                   <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: '#555' }}>Previstos</div>
                   <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#333' }}>
@@ -207,6 +207,14 @@ export default function PuertaApp() {
                   <div style={{ background: 'rgba(255,255,255,0.8)', padding: '10px', borderRadius: '8px' }}>
                     <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: '#555' }}>Mesa</div>
                     <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#333' }}>{guestInfo.mesa}</div>
+                  </div>
+                )}
+                {guestInfo.estado_asistencia === 'Confirmado' && guestInfo.necesita_parking !== null && guestInfo.necesita_parking !== undefined && (
+                  <div style={{ background: 'rgba(255,255,255,0.8)', padding: '10px', borderRadius: '8px' }}>
+                    <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: '#555' }}>Parking</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: guestInfo.necesita_parking ? '#2e7d32' : '#c62828' }}>
+                      {guestInfo.necesita_parking ? 'SÍ' : 'NO'}
+                    </div>
                   </div>
                 )}
               </div>

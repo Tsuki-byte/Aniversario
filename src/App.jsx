@@ -13,6 +13,7 @@ export default function App() {
   // RSVP form state
   const [attending,   setAttending]   = useState(null)
   const [companions,  setCompanions]  = useState(0)
+  const [needsParking, setNeedsParking] = useState(false)
   const [submitting,  setSubmitting]  = useState(false)
   const [formStep,    setFormStep]    = useState('form') // 'form' | 'success'
   const [error,       setError]       = useState('')
@@ -68,7 +69,11 @@ export default function App() {
         } else {
           setGuestData(data)
           const estado = (data.estado_asistencia || '').toLowerCase()
-          if (estado === 'confirmado') { setAttending(true);  setCompanions(data.conf_acompanantes || 0) }
+          if (estado === 'confirmado') { 
+            setAttending(true);  
+            setCompanions(data.conf_acompanantes || 0);
+            setNeedsParking(data.necesita_parking || false);
+          }
           if (estado === 'declinado')  { setAttending(false) }
           // ✔ Si ya respondió una vez, bloquear el formulario
           if (estado === 'confirmado' || estado === 'declinado') {
@@ -104,7 +109,11 @@ export default function App() {
       } else {
         setGuestData(data)
         const estado = (data.estado_asistencia || '').toLowerCase()
-        if (estado === 'confirmado') { setAttending(true);  setCompanions(data.conf_acompanantes || 0) }
+        if (estado === 'confirmado') { 
+          setAttending(true);  
+          setCompanions(data.conf_acompanantes || 0);
+          setNeedsParking(data.necesita_parking || false);
+        }
         if (estado === 'declinado')  { setAttending(false) }
         if (estado === 'confirmado' || estado === 'declinado') {
           setFormStep('success')
@@ -146,6 +155,7 @@ export default function App() {
         .update({
           estado_asistencia: attending ? 'Confirmado' : 'Declinado',
           conf_acompanantes: attending ? parseInt(companions) : 0,
+          necesita_parking: needsParking,
           observaciones: (guestData.observaciones || '') + '\\n[Respondido vía web]'
         })
         .eq('id', guestData.id)
@@ -470,6 +480,23 @@ export default function App() {
                       Límite de acompañantes permitido alcanzado.
                     </p>
                   )}
+                </div>
+              )}
+              {attending && (
+                <div className="form-group" style={{ animation: 'slideUp 0.3s ease-out' }}>
+                  <label className="form-label">¿Necesitas plaza de aparcamiento?</label>
+                  <div className="radio-group" style={{ gridTemplateColumns: '1fr 1fr' }}>
+                    <div className="radio-option">
+                      <input type="radio" id="parking-yes" name="parking" 
+                        checked={needsParking === true} onChange={() => setNeedsParking(true)} />
+                      <label htmlFor="parking-yes">Sí</label>
+                    </div>
+                    <div className="radio-option">
+                      <input type="radio" id="parking-no" name="parking" 
+                        checked={needsParking === false} onChange={() => setNeedsParking(false)} />
+                      <label htmlFor="parking-no">No</label>
+                    </div>
+                  </div>
                 </div>
               )}
               {error && <div className="error-msg"><AlertCircle size={15} />{error}</div>}
