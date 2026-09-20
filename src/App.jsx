@@ -156,7 +156,7 @@ export default function App() {
           estado_asistencia: attending ? 'Confirmado' : 'Declinado',
           conf_acompanantes: attending ? parseInt(companions) : 0,
           necesita_parking: needsParking,
-          observaciones: (guestData.observaciones || '') + '\\n[Respondido vía web]'
+          observaciones: (guestData.observaciones || '') + ' - [Respondido vía web]'
         })
         .eq('id', guestData.id)
         .select()
