@@ -154,6 +154,7 @@ export default function App() {
         .from('invitados')
         .update({
           estado_asistencia: attending ? 'Confirmado' : 'Declinado',
+          conf_titulares: attending ? 1 : 0,
           conf_acompanantes: attending ? parseInt(companions) : 0,
           necesita_parking: needsParking,
           observaciones: (guestData.observaciones || '') + ' - [Respondido vía web]'
