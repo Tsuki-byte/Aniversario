@@ -41,10 +41,8 @@ export default function App() {
 
     const trackAndLoad = async () => {
       if (!supabase) {
-        // Demo mode
-        setGuestStatus(id ? 'found' : 'nocode')
-        if (id) setGuestData({ id: 'demo', nombre: 'Familia Demo', estado_asistencia: null, conf_acompanantes: 0 })
-        setVisitas(42)
+        // Database not configured
+        setGuestStatus(id ? 'notfound' : 'nocode')
         return
       }
 
