@@ -43,7 +43,7 @@ export default function App() {
       if (!supabase) {
         // Demo mode
         setGuestStatus(id ? 'found' : 'nocode')
-        if (id) setGuestData({ id: 'demo', nombre: 'Familia Demo', estado_asistencia: null, acompanantes_confirmados: 0 })
+        if (id) setGuestData({ id: 'demo', nombre: 'Familia Demo', estado_asistencia: null, conf_acompanantes: 0 })
         setVisitas(42)
         return
       }
@@ -79,9 +79,12 @@ export default function App() {
         } else {
           setGuestData(data)
           const estado = (data.estado_asistencia || '').toLowerCase()
-          if (estado === 'confirmado') { setAttending(true);  setCompanions(data.acompanantes_confirmados || 0) }
+          if (estado === 'confirmado') { setAttending(true);  setCompanions(data.conf_acompanantes || 0) }
           if (estado === 'declinado')  { setAttending(false) }
-          setGuestStatus('found')
+          // ✔ Si ya respondió una vez, bloquear el formulario
+          if (estado === 'confirmado' || estado === 'declinado') {
+            setFormStep('success')
+          }
         }
       } catch (_) {
         setGuestStatus('notfound')
@@ -110,8 +113,12 @@ export default function App() {
       } else {
         setGuestData(data)
         const estado = (data.estado_asistencia || '').toLowerCase()
-        if (estado === 'confirmado') { setAttending(true);  setCompanions(data.acompanantes_confirmados || 0) }
+        if (estado === 'confirmado') { setAttending(true);  setCompanions(data.conf_acompanantes || 0) }
         if (estado === 'declinado')  { setAttending(false) }
+        // ✔ Si ya respondió una vez, bloquear el formulario
+        if (estado === 'confirmado' || estado === 'declinado') {
+          setFormStep('success')
+        }
         setGuestStatus('found')
       }
     } catch (_) {
@@ -134,7 +141,8 @@ export default function App() {
         .from('invitados')
         .update({
           estado_asistencia: attending ? 'Confirmado' : 'Declinado',
-          acompanantes_confirmados: attending ? parseInt(companions) : 0
+          conf_titulares: attending ? 1 : 0,
+          conf_acompanantes: attending ? parseInt(companions) : 0
         })
         .eq('id', guestData.id)
 
@@ -321,7 +329,8 @@ export default function App() {
               )}
               {error && <div className="error-msg"><AlertCircle size={15} />{error}</div>}
               <button type="submit" className="btn-primary" disabled={submitting}>
-                {submitting ? <><Loader2 size={16} className="spin" /> Guardando...</> : 'CONFIRMAR ASISTENCIA'}
+                {submitting ? <><Loader2 size={16} className="spin" /> Guardando...</> : 
+                  (attending === false ? 'CONFIRMAR DECLINACIÓN' : 'CONFIRMAR ASISTENCIA')}
               </button>
               <p className="privacy-text">Tus datos se enviarán y almacenarán de forma segura.</p>
             </form>
@@ -336,12 +345,14 @@ export default function App() {
                   <h2 className="rsvp-title">¡Perfecto, te esperamos!</h2>
                   <p className="rsvp-subtitle">
                     Hemos registrado tu asistencia.
-                    {companions > 0 && <> Vendréis <strong>{parseInt(companions) + 1} personas</strong> en total.</>}
+                    {companions > 0 && <> Vendéis <strong>{parseInt(companions) + 1} personas</strong> en total.</>}
                     {' '}¡Nos vemos en la celebración!
-                  </p></>
+                  </p>
+                  <p className="rsvp-locked-note">🔒 Tu respuesta ya ha sido registrada y no puede modificarse. Si necesitas hacer un cambio contacta con nosotros. </p></>
               : <><XCircle size={48} className="rsvp-success-icon muted" />
                   <h2 className="rsvp-title">Respuesta registrada</h2>
-                  <p className="rsvp-subtitle">Lamentamos que no puedas venir. ¡Te echaremos de menos!</p></>
+                  <p className="rsvp-subtitle">Lamentamos que no puedas venir. ¡Te echaremos de menos!</p>
+                  <p className="rsvp-locked-note">🔒 Tu respuesta ya ha sido registrada y no puede modificarse. Si necesitas hacer un cambio contacta con nosotros.</p></>
             }
           </div>
         )}

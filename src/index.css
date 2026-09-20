@@ -36,7 +36,7 @@ body {
 
 /* ── Page wrapper ─────────────────────────────────────────────────────────── */
 .page {
-  max-width: 480px;
+  max-width: 640px;
   margin: 0 auto;
   min-height: 100vh;
 }
@@ -79,7 +79,7 @@ body {
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 42px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.15;
   color: var(--text-dark);
   margin-bottom: 24px;
@@ -144,7 +144,7 @@ body {
 .section-dark-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 40px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.15;
   color: var(--text-cream);
   margin-bottom: 24px;
@@ -369,8 +369,8 @@ body {
 
 .rsvp-greeting {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 28px;
+  font-weight: 600;
   color: var(--gold-light);
   margin-bottom: 4px;
 }
@@ -465,6 +465,8 @@ body {
 
 .companions-number {
   flex: 1;
+  min-width: 0;
+  width: 100%;
   text-align: center;
   background: transparent;
   border: none;
@@ -519,6 +521,18 @@ body {
   color: var(--text-wine-sub);
   text-align: center;
   opacity: 0.7;
+}
+
+.rsvp-locked-note {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--text-wine-sub);
+  text-align: center;
+  background: rgba(192, 154, 60, 0.08);
+  border: 1px solid rgba(192, 154, 60, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  opacity: 0.85;
 }
 
 /* Error */
