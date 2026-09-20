@@ -345,8 +345,8 @@
 }
 
 .rsvp-subtitle {
-  font-size: 14px;
-  color: var(--text-wine-sub);
+  font-size: 16px;
+  color: var(--text-cream);
   margin-bottom: 32px;
   line-height: 1.6;
 }
@@ -360,8 +360,8 @@
 }
 
 .rsvp-greeting-sub {
-  font-size: 13px;
-  color: var(--text-wine-sub);
+  font-size: 15px;
+  color: var(--text-cream);
   margin-bottom: 28px;
   line-height: 1.6;
 }
@@ -375,11 +375,11 @@
 /* Form */
 .form-label {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--text-wine-sub);
+  color: var(--text-cream);
   margin-bottom: 14px;
 }
 
@@ -405,9 +405,9 @@
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.25s;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  color: var(--text-wine-sub);
+  color: var(--text-cream);
   letter-spacing: 0.3px;
 }
 
@@ -509,8 +509,8 @@
 
 .rsvp-locked-note {
   margin-top: 16px;
-  font-size: 12px;
-  color: var(--text-wine-sub);
+  font-size: 14px;
+  color: var(--text-cream);
   text-align: center;
   background: rgba(192, 154, 60, 0.08);
   border: 1px solid rgba(192, 154, 60, 0.2);
