@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import { supabase } from './supabaseClient';
-import { CheckCircle, XCircle, Users, Loader2 } from 'lucide-react';
+import { CheckCircle, XCircle, Loader2 } from 'lucide-react';
 
 export default function PuertaApp() {
   const [scanResult, setScanResult] = useState(null);
@@ -9,42 +9,47 @@ export default function PuertaApp() {
   const [guestInfo, setGuestInfo] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [recentScans, setRecentScans] = useState([]);
+  const [scannerError, setScannerError] = useState(null);
 
   useEffect(() => {
-    // Only run if there is no scanner active yet
-    let scanner = new Html5QrcodeScanner("reader", {
-      fps: 10,
-      qrbox: { width: 250, height: 250 },
-      aspectRatio: 1.0,
-    });
+    try {
+      let scanner = new Html5QrcodeScanner("reader", {
+        fps: 10,
+        qrbox: { width: 250, height: 250 },
+        aspectRatio: 1.0,
+      });
 
-    const onScanSuccess = async (decodedText) => {
-      // The decodedText is likely: https://tsuki-byte.github.io/Aniversario/?id=XYZ
-      let id = decodedText;
-      try {
-        const url = new URL(decodedText);
-        const searchParams = new URLSearchParams(url.search);
-        if (searchParams.has('id')) {
-          id = searchParams.get('id');
+      const onScanSuccess = async (decodedText) => {
+        let id = decodedText;
+        try {
+          const url = new URL(decodedText);
+          const searchParams = new URLSearchParams(url.search);
+          if (searchParams.has('id')) {
+            id = searchParams.get('id');
+          }
+        } catch (e) {
+          // Ignore
         }
-      } catch (e) {
-        // Not a URL, use raw text
-      }
-      
-      handleCheckIn(id);
-    };
+        
+        handleCheckIn(id);
+      };
 
-    scanner.render(onScanSuccess, (error) => {
-      // Ignore scan failures
-    });
+      scanner.render(onScanSuccess, (error) => {
+        // Ignore normal scan failures
+      });
 
-    return () => {
-      scanner.clear().catch(console.error);
-    };
+      return () => {
+        try {
+          scanner.clear().catch(console.error);
+        } catch(e){}
+      };
+    } catch(err) {
+      setScannerError("Error iniciando la cámara: " + err.message);
+    }
   }, []);
 
   const handleCheckIn = async (id) => {
-    if (loading || (scanResult && scanResult.id === id)) return; // Prevent double trigger
+    if (loading || (scanResult && scanResult.id === id)) return;
     
     setLoading(true);
     setErrorMsg(null);
@@ -69,10 +74,8 @@ export default function PuertaApp() {
       setGuestInfo(data);
 
       if (data.ha_entrado) {
-        // Ya había entrado
         setErrorMsg('ESTE INVITADO YA HA ENTRADO ANTERIORMENTE.');
       } else {
-        // Registrar entrada
         const { error: updateError } = await supabase
           .from('invitados')
           .update({ ha_entrado: true, hora_entrada: new Date().toISOString() })
@@ -81,7 +84,6 @@ export default function PuertaApp() {
         if (updateError) throw updateError;
 
         data.ha_entrado = true;
-        // Add to history
         setRecentScans(prev => [data, ...prev].slice(0, 5));
       }
     } catch (e) {
@@ -89,7 +91,6 @@ export default function PuertaApp() {
       setErrorMsg('Error al consultar: ' + e.message);
     } finally {
       setLoading(false);
-      // clear after 5s to allow scan again
       setTimeout(() => {
         setScanResult(null);
       }, 5000);
@@ -100,7 +101,13 @@ export default function PuertaApp() {
     <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto', fontFamily: 'sans-serif' }}>
       <h1 style={{ textAlign: 'center', color: '#b68735' }}>Control de Acceso</h1>
       
-      <div id="reader" style={{ width: '100%', marginBottom: '20px' }}></div>
+      {scannerError && (
+        <div style={{ background: '#ffecec', color: '#d32f2f', padding: '15px', borderRadius: '8px', marginBottom: '20px' }}>
+          {scannerError}
+        </div>
+      )}
+
+      <div id="reader" style={{ width: '100%', marginBottom: '20px', background: '#f5f5f5', minHeight: '300px' }}></div>
 
       {loading && (
         <div style={{ textAlign: 'center', padding: '20px' }}>
