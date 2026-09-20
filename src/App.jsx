@@ -85,6 +85,8 @@ export default function App() {
           if (estado === 'confirmado' || estado === 'declinado') {
             setFormStep('success')
           }
+          
+          setGuestStatus('found')
         }
       } catch (_) {
         setGuestStatus('notfound')
