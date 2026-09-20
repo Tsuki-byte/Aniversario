@@ -322,12 +322,12 @@ export default function App() {
                       onClick={() => setCompanions(Math.max(0, companions - 1))}>−</button>
                     <input className="companions-number" type="number" value={companions} readOnly />
                     <button type="button" className="btn-counter"
-                      onClick={() => setCompanions(Math.min(guestData.prev_acompanantes || 0, companions + 1))}>+</button>
+                      onClick={() => setCompanions(Math.min(MAX_COMPANIONS, companions + 1))}>+</button>
                   </div>
                   <p className="companions-hint">Total de personas: <strong>{parseInt(companions) + 1}</strong></p>
-                  {companions >= (guestData.prev_acompanantes || 0) && (
+                  {companions >= MAX_COMPANIONS && (
                     <p style={{fontSize: '0.85rem', color: '#ff6b6b', marginTop: '5px'}}>
-                      Límite de acompañantes permitido: {guestData.prev_acompanantes || 0}
+                      Límite de acompañantes permitido alcanzado.
                     </p>
                   )}
                 </div>
