@@ -7,6 +7,7 @@ import {
 
 export default function App() {
   // Guest state
+  const MAX_COMPANIONS = 4
   const [guestStatus, setGuestStatus] = useState('loading') // 'loading' | 'found' | 'notfound' | 'nocode'
   const [guestData,   setGuestData]   = useState(null)
 
