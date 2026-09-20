@@ -7,7 +7,6 @@ import {
 
 export default function App() {
   // Guest state
-  const MAX_COMPANIONS = 4
   const [guestStatus, setGuestStatus] = useState('loading') // 'loading' | 'found' | 'notfound' | 'nocode'
   const [guestData,   setGuestData]   = useState(null)
 
@@ -467,20 +466,32 @@ export default function App() {
               </div>
               {attending && (
                 <div className="form-group" style={{ animation: 'slideUp 0.3s ease-out' }}>
-                  <label className="form-label">Acompañantes (adicionales a ti)</label>
-                  <div className="companions-row">
-                    <button type="button" className="btn-counter"
-                      onClick={() => setCompanions(Math.max(0, companions - 1))}>−</button>
-                    <input className="companions-number" type="number" value={companions} readOnly />
-                    <button type="button" className="btn-counter"
-                      onClick={() => setCompanions(Math.min(MAX_COMPANIONS, companions + 1))}>+</button>
+                  <label className="form-label">¿Vendrás con acompañante?</label>
+                  <div className="radio-group" style={{ gridTemplateColumns: '1fr 1fr', marginBottom: '16px' }}>
+                    <div className="radio-option">
+                      <input type="radio" id="comp-yes" name="companion" 
+                        checked={companions === 1} onChange={() => setCompanions(1)} />
+                      <label htmlFor="comp-yes">Sí</label>
+                    </div>
+                    <div className="radio-option">
+                      <input type="radio" id="comp-no" name="companion" 
+                        checked={companions === 0} onChange={() => setCompanions(0)} />
+                      <label htmlFor="comp-no">No</label>
+                    </div>
                   </div>
-                  <p className="companions-hint">Total de personas: <strong>{parseInt(companions) + 1}</strong></p>
-                  {companions >= MAX_COMPANIONS && (
-                    <p style={{fontSize: '0.85rem', color: '#ff6b6b', marginTop: '5px'}}>
-                      Límite de acompañantes permitido alcanzado.
-                    </p>
-                  )}
+                  
+                  <div style={{
+                    display: 'flex', gap: '12px', alignItems: 'flex-start',
+                    background: '#fdfbf6', borderLeft: '4px solid #cc0000',
+                    padding: '16px', borderRadius: '2px 8px 8px 2px',
+                    marginTop: '16px'
+                  }}>
+                    <UsersRound size={22} style={{ color: '#cc0000', flexShrink: 0, marginTop: '2px' }} />
+                    <div style={{ color: '#333', fontSize: '13.5px', lineHeight: '1.6' }}>
+                      Por motivos de aforo, la invitación está limitada a <strong style={{ color: '#333' }}>dos personas por empresa</strong>. 
+                      Para solicitar plazas adicionales, consúltanos en el <strong style={{ color: '#cc0000', textDecoration: 'underline' }}>976 33 22 29</strong>.
+                    </div>
+                  </div>
                 </div>
               )}
               {attending && (
