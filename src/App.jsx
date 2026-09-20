@@ -157,6 +157,7 @@ export default function App() {
           conf_titulares: attending ? 1 : 0,
           conf_acompanantes: attending ? parseInt(companions) : 0,
           necesita_parking: needsParking,
+          fecha_respuesta: new Date().toISOString(),
           observaciones: (guestData.observaciones || '') + ' - [Respondido vía web]'
         })
         .eq('id', guestData.id)
