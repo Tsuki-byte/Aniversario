@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import { supabase } from './supabaseClient';
 import { CheckCircle, XCircle, Loader2 } from 'lucide-react';
@@ -9,44 +9,45 @@ export default function PuertaApp() {
   const [guestInfo, setGuestInfo] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [recentScans, setRecentScans] = useState([]);
+  const [scannerStarted, setScannerStarted] = useState(false);
   const [scannerError, setScannerError] = useState(null);
 
-  useEffect(() => {
-    try {
-      let scanner = new Html5QrcodeScanner("reader", {
-        fps: 10,
-        qrbox: { width: 250, height: 250 },
-        aspectRatio: 1.0,
-      });
+  const startScanner = () => {
+    setScannerStarted(true);
+    setScannerError(null);
+    
+    // We delay the initialization slightly to ensure the #reader div is mounted
+    setTimeout(() => {
+      try {
+        let scanner = new Html5QrcodeScanner("reader", {
+          fps: 10,
+          qrbox: { width: 250, height: 250 },
+          aspectRatio: 1.0,
+        }, false);
 
-      const onScanSuccess = async (decodedText) => {
-        let id = decodedText;
-        try {
-          const url = new URL(decodedText);
-          const searchParams = new URLSearchParams(url.search);
-          if (searchParams.has('id')) {
-            id = searchParams.get('id');
+        const onScanSuccess = async (decodedText) => {
+          let id = decodedText;
+          try {
+            const url = new URL(decodedText);
+            const searchParams = new URLSearchParams(url.search);
+            if (searchParams.has('id')) {
+              id = searchParams.get('id');
+            }
+          } catch (e) {
+            // Ignore
           }
-        } catch (e) {
-          // Ignore
-        }
-        
-        handleCheckIn(id);
-      };
+          
+          handleCheckIn(id);
+        };
 
-      scanner.render(onScanSuccess, (error) => {
-        // Ignore normal scan failures
-      });
-
-      return () => {
-        try {
-          scanner.clear().catch(console.error);
-        } catch(e){}
-      };
-    } catch(err) {
-      setScannerError("Error iniciando la cámara: " + err.message);
-    }
-  }, []);
+        scanner.render(onScanSuccess, (error) => {
+          // Ignore normal scan failures
+        });
+      } catch(err) {
+        setScannerError("Error iniciando la cámara: " + err.message);
+      }
+    }, 200);
+  };
 
   const handleCheckIn = async (id) => {
     if (loading || (scanResult && scanResult.id === id)) return;
@@ -107,7 +108,29 @@ export default function PuertaApp() {
         </div>
       )}
 
-      <div id="reader" style={{ width: '100%', marginBottom: '20px', background: '#f5f5f5', minHeight: '300px' }}></div>
+      {!scannerStarted ? (
+        <div style={{ textAlign: 'center', margin: '40px 0' }}>
+          <button 
+            onClick={startScanner}
+            style={{
+              background: '#b68735',
+              color: 'white',
+              border: 'none',
+              padding: '15px 30px',
+              fontSize: '1.2rem',
+              borderRadius: '8px',
+              cursor: 'pointer'
+            }}
+          >
+            Encender Cámara 📸
+          </button>
+          <p style={{ marginTop: '15px', color: '#666' }}>
+            Si el navegador te pide permisos, dale a "Permitir".
+          </p>
+        </div>
+      ) : (
+        <div id="reader" style={{ width: '100%', marginBottom: '20px', minHeight: '300px' }}></div>
+      )}
 
       {loading && (
         <div style={{ textAlign: 'center', padding: '20px' }}>
