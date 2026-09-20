@@ -61,7 +61,7 @@ export default function PuertaApp() {
       const { data, error } = await supabase
         .from('invitados')
         .select('*')
-        .eq('id', id)
+        .eq('codigo_acceso', id.toUpperCase())
         .single();
 
       if (error) throw error;
@@ -80,7 +80,7 @@ export default function PuertaApp() {
         const { error: updateError } = await supabase
           .from('invitados')
           .update({ ha_entrado: true, hora_entrada: new Date().toISOString() })
-          .eq('id', id);
+          .eq('id', data.id);
 
         if (updateError) throw updateError;
 
