@@ -245,7 +245,7 @@ export default function App() {
     const targetPosition = target.getBoundingClientRect().top + window.scrollY;
     const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
-    const duration = 1200; // 1.2 segundos para un scroll muy suave y elegante
+    const duration = 2500; // 2.5 segundos para un scroll lentísimo y panorámico
     let start = null;
 
     const step = (timestamp) => {
