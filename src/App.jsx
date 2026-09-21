@@ -486,7 +486,7 @@ export default function App() {
           <article>
             <UsersRound size={24} aria-hidden="true" />
             <span>Aforo</span>
-            <strong>Máximo 2 personas por empresa</strong>
+            <strong style={{ fontWeight: 500, fontSize: '15px' }}>Por capacidad de la sala se limita a dos personas por empresa</strong>
           </article>
           <article>
             <Phone size={24} aria-hidden="true" />
