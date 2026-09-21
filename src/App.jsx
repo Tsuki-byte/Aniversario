@@ -286,20 +286,20 @@ export default function App() {
             <p>El 10 de noviembre reuniremos en Zaragoza a profesionales del canal HORECA y de alimentación de toda España, además de autoridades y amigos. La jornada incluirá una exposición en la Facultad de Veterinaria y una celebración en Torreluna, como reconocimiento a todas las personas que hacen posible nuestro sector.</p>
           </div>
         </div>
-        <div className="years">
-          <div className="year-point">
-            <span>1951</span>
-            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ mixBlendMode: 'darken' }} />
+        <div className="years" style={{ alignItems: 'center' }}>
+          <div className="year-point" style={{ position: 'relative' }}>
+            <span style={{ position: 'absolute', top: '-2rem', left: 0, right: 0, textAlign: 'center' }}>1951</span>
+            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ width: 'clamp(110px, 16vw, 165px)', maxWidth: 'none', mixBlendMode: 'darken' }} />
           </div>
-          <i></i>
-          <div className="year-point">
-            <span style={{ color: 'var(--wine)', fontWeight: 'bold' }}>75 años</span>
-            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ borderRadius: '12px' }} />
+          <i style={{ margin: 0 }}></i>
+          <div className="year-point" style={{ position: 'relative' }}>
+            <span style={{ position: 'absolute', top: '-2rem', left: 0, right: 0, textAlign: 'center', color: 'var(--wine)', fontWeight: 'bold' }}>75 años</span>
+            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ width: 'clamp(110px, 16vw, 165px)', maxWidth: 'none', borderRadius: '12px' }} />
           </div>
-          <i></i>
-          <div className="year-point">
-            <span>2026</span>
-            <img src="./anagrama-bernal-transparente.png" alt="Anagrama actual de Embutidos Bernal" />
+          <i style={{ margin: 0 }}></i>
+          <div className="year-point" style={{ position: 'relative' }}>
+            <span style={{ position: 'absolute', top: '-2rem', left: 0, right: 0, textAlign: 'center' }}>2026</span>
+            <img src="./anagrama-bernal-transparente.png" alt="Anagrama actual de Embutidos Bernal" style={{ width: 'clamp(65px, 9.5vw, 98px)', maxWidth: 'none' }} />
           </div>
         </div>
       </section>
