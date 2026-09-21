@@ -194,7 +194,7 @@ export default function App() {
   }
 
   // ── Full page layout (always shown) ─────────────────────────────────────
-  const MainPage = () => (
+  return (
     <main>
       <header className="nav" aria-label="Navegación principal">
         <a className="wordmark brand-lockup" href="#inicio" aria-label="Embutidos Bernal, inicio">
@@ -640,8 +640,6 @@ export default function App() {
       </footer>
     </main>
   )
-
-  return <MainPage />
 }
 
 // ── Manual code form (extracted for reuse) ────────────────────────────────────
