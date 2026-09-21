@@ -392,7 +392,7 @@ export default function App() {
           <article className="party">
             <time>00:00–04:00 h</time><span className="dot"></span>
             <div>
-              <h3>DJ Dani Martín</h3>
+              <h3>DJ Miguel Huerta</h3>
               <p><MapPin size={24} aria-hidden="true" />Finca Torreluna</p>
             </div>
           </article>
