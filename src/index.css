@@ -838,6 +838,7 @@
 /* ── Enlarged Footer Lockup Logo ──────────────────────────────────────────── */
 .footer-logo.footer-lockup {
   width: min(90%, 800px) !important;
+  height: auto !important;
   max-width: none !important;
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -851,6 +852,7 @@
 @media (max-width: 800px) {
   .footer-logo.footer-lockup {
     width: 100vw !important;
+    height: auto !important;
     max-width: 100vw !important;
     margin-left: -2rem !important; /* Compensa el padding de 2rem del footer */
     margin-right: -2rem !important;
