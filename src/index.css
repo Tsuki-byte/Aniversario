@@ -780,6 +780,8 @@
   max-width: none !important;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 @media (max-width: 800px) {
   .footer-logo.footer-lockup {
