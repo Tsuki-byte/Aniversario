@@ -772,16 +772,22 @@
   position: relative;
 }
 
+}
+
+
 /* ── Enlarged Footer Lockup Logo ──────────────────────────────────────────── */
 .footer-logo.footer-lockup {
-  width: min(1200px, 98vw) !important;
-  max-width: 1200px !important;
-  padding: 16px !important;
+  width: min(100%, 1400px) !important;
+  max-width: none !important;
+  transform: scale(1.15);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 @media (max-width: 800px) {
   .footer-logo.footer-lockup {
-    width: 98vw !important;
-    padding: 8px !important;
+    transform: scale(1.25);
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
   }
 }
 
