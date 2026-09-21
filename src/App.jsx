@@ -270,9 +270,6 @@ export default function App() {
           
           <Countdown />
 
-          <a className="primary-button" href="#confirmacion">
-            Confirmar asistencia <ArrowDown size={24} aria-hidden="true" />
-          </a>
         </div>
         <p className="vertical-note">Tradición · Familia · Futuro</p>
       </section>
