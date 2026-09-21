@@ -466,7 +466,7 @@ export default function App() {
             <Clock size={24} aria-hidden="true" />
             <span>Exposición histórica</span>
             <strong>17:00 h · Facultad de Veterinaria</strong>
-            <a className="map-link" href="https://maps.app.goo.gl/6KESW6yhABA5VNUbA?g_st=ic" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: 'var(--text-wine-sub)', textDecoration: 'none', marginTop: '4px', textTransform: 'none' }}>
+            <a href="https://maps.app.goo.gl/6KESW6yhABA5VNUbA?g_st=ic" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: 'var(--text-wine-sub)', textDecoration: 'none', marginTop: '2px', textTransform: 'none', fontFamily: 'Inter, sans-serif', lineHeight: '1.4', fontWeight: 'normal' }}>
               Abrir en Google Maps <ArrowRight size={16} aria-hidden="true" />
             </a>
           </article>
