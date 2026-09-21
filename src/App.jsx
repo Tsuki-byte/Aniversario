@@ -247,7 +247,7 @@ export default function App() {
           </span>
           <strong className="brand-name"><b>Embutidos</b><b>Bernal</b></strong>
         </a>
-        <nav>
+        <nav style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
           <a href="#historia">Historia</a>
           <a href="#programa">Programa</a>
           <a href="#confirmacion">Confirmar</a>
