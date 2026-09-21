@@ -237,20 +237,48 @@ export default function App() {
     }
   }
 
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 1200; // 1.2 segundos para un scroll muy suave y elegante
+    let start = null;
+
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const t = Math.min(progress / duration, 1);
+      const ease = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      
+      window.scrollTo(0, startPosition + distance * ease);
+      
+      if (progress < duration) {
+        window.requestAnimationFrame(step);
+      } else {
+        window.location.hash = targetId;
+      }
+    };
+    window.requestAnimationFrame(step);
+  };
+
   // ── Full page layout (always shown) ─────────────────────────────────────
   return (
     <main>
       <header className="nav" aria-label="Navegación principal">
-        <a className="wordmark brand-lockup" href="#inicio" aria-label="Embutidos Bernal, inicio">
+        <a className="wordmark brand-lockup" href="#inicio" onClick={(e) => handleNavClick(e, 'inicio')} aria-label="Embutidos Bernal, inicio">
           <span className="brand-logo old-brand-logo">
             <img src="./anagrama-bernal-transparente.png" alt="Anagrama de Embutidos Bernal"/>
           </span>
           <strong className="brand-name"><b>Embutidos</b><b>Bernal</b></strong>
         </a>
         <nav style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-          <a href="#historia">Historia</a>
-          <a href="#programa">Programa</a>
-          <a href="#confirmacion">Confirmar</a>
+          <a href="#historia" onClick={(e) => handleNavClick(e, 'historia')}>Historia</a>
+          <a href="#programa" onClick={(e) => handleNavClick(e, 'programa')}>Programa</a>
+          <a href="#confirmacion" onClick={(e) => handleNavClick(e, 'confirmacion')}>Confirmar</a>
         </nav>
       </header>
 
