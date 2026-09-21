@@ -250,8 +250,8 @@ export default function App() {
         <nav>
           <a href="#historia">Historia</a>
           <a href="#programa">Programa</a>
+          <a href="#confirmacion">Confirmar</a>
         </nav>
-        <a className="nav-cta" href="#confirmacion">Confirmar</a>
       </header>
 
       <section id="inicio" className="hero" aria-labelledby="hero-title">
