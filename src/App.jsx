@@ -433,8 +433,8 @@ export default function App() {
           <article>
             <Shirt size={24} aria-hidden="true" />
             <span>Código de vestimenta</span>
-            <strong>Arreglado</strong>
-            <p style={{fontSize: '13px', marginTop: '4px', color: 'var(--text-wine-sub)', lineHeight: '1.4'}}>Se recomienda media etiqueta o traje de chaqueta. No es necesario frac ni vestido largo.</p>
+            <strong>Festivo</strong>
+            <p style={{fontSize: '13px', marginTop: '4px', color: 'var(--text-wine-sub)', lineHeight: '1.4'}}>¡Ponte tus mejores galas! Te sugerimos media etiqueta (traje o vestido de cóctel). Queremos que te sientas espectacular, sin necesidad de frac o vestido largo.</p>
           </article>
           <article>
             <UsersRound size={24} aria-hidden="true" />
