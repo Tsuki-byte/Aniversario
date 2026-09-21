@@ -667,7 +667,7 @@ export default function App() {
 
       <footer>
         <div className="footer-mark">75</div>
-        <img className="footer-logo footer-lockup" src="./bernal-hot-bull-cierre.png?v=4" alt="75.º aniversario de Embutidos Bernal y Hot Bull Saludable"/>
+        <img className="footer-logo footer-lockup" src="./bernal-hot-bull-cierre.png?v=5" alt="75.º aniversario de Embutidos Bernal y Hot Bull Saludable"/>
         <p>75 años de historia.<br/><strong>Y todavía nos queda mucho futuro por celebrar.</strong></p>
         
         {visitas !== null && (
