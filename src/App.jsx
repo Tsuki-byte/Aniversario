@@ -480,6 +480,9 @@ export default function App() {
             <MapPin size={24} aria-hidden="true" />
             <span>Torreluna</span>
             <strong>Miguel Servet, 193 · Zaragoza</strong>
+            <a href="https://maps.app.goo.gl/jver8wG8urWqLjdk8?g_st=ic" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '13.5px', color: 'var(--text-wine-sub)', textDecoration: 'none', marginTop: '2px', textTransform: 'none', fontFamily: 'Inter, sans-serif', lineHeight: '1.4', fontWeight: 'normal' }}>
+              Abrir en Google Maps <ArrowRight size={16} aria-hidden="true" />
+            </a>
           </article>
           <article>
             <Shirt size={24} aria-hidden="true" />
