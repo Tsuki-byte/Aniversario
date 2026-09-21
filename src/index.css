@@ -774,7 +774,7 @@
 
 
 
-/* ── Enlarged Footer Lockup Logo ──────────────────────────────────────────── */
+/* ── Enlarged Footer Lockup Logo (No Box) ─────────────────────────────────── */
 .footer-logo.footer-lockup {
   width: min(100%, 1400px) !important;
   max-width: none !important;
@@ -782,6 +782,10 @@
   margin-bottom: 2rem;
   margin-left: auto !important;
   margin-right: auto !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 @media (max-width: 800px) {
   .footer-logo.footer-lockup {
@@ -789,12 +793,11 @@
     max-width: 100vw !important;
     margin-left: -2rem !important; /* Compensa el padding de 2rem del footer */
     margin-right: -2rem !important;
-    border-radius: 0 !important;
-    border-left: none !important;
-    border-right: none !important;
+    border: none !important;
+    background: transparent !important;
     margin-top: 2rem;
     margin-bottom: 2.5rem;
-    padding: 10px !important;
+    padding: 0 !important;
   }
 }
 
