@@ -13,6 +13,8 @@ export default function App() {
   // RSVP form state
   const [attending,   setAttending]   = useState(null)
   const [companions,  setCompanions]  = useState(0)
+  const [nombreTitular, setNombreTitular] = useState('')
+  const [nombreAcompanante, setNombreAcompanante] = useState('')
   const [needsParking, setNeedsParking] = useState(false)
   const [submitting,  setSubmitting]  = useState(false)
   const [formStep,    setFormStep]    = useState('form') // 'form' | 'success'
@@ -73,6 +75,8 @@ export default function App() {
             setAttending(true);  
             setCompanions(data.conf_acompanantes || 0);
             setNeedsParking(data.necesita_parking || false);
+            setNombreTitular(data.nombre_titular || '');
+            setNombreAcompanante(data.nombre_acompanante || '');
           }
           if (estado === 'declinado')  { setAttending(false) }
           // ✔ Si ya respondió una vez, bloquear el formulario
@@ -113,6 +117,8 @@ export default function App() {
           setAttending(true);  
           setCompanions(data.conf_acompanantes || 0);
           setNeedsParking(data.necesita_parking || false);
+          setNombreTitular(data.nombre_titular || '');
+          setNombreAcompanante(data.nombre_acompanante || '');
         }
         if (estado === 'declinado')  { setAttending(false) }
         if (estado === 'confirmado' || estado === 'declinado') {
@@ -139,6 +145,17 @@ export default function App() {
       setError('Por favor, indica si podrás asistir o no.')
       return
     }
+    
+    if (attending) {
+      if (!nombreTitular.trim()) {
+        setError('Por favor, indica tu nombre y apellidos.')
+        return
+      }
+      if (companions === 1 && !nombreAcompanante.trim()) {
+        setError('Por favor, indica el nombre y apellidos de tu acompañante.')
+        return
+      }
+    }
 
     setSubmitting(true)
     setError('')
@@ -157,6 +174,8 @@ export default function App() {
           conf_titulares: attending ? 1 : 0,
           conf_acompanantes: attending ? parseInt(companions) : 0,
           necesita_parking: needsParking,
+          nombre_titular: attending ? nombreTitular.trim() : null,
+          nombre_acompanante: (attending && companions === 1) ? nombreAcompanante.trim() : null,
           fecha_respuesta: new Date().toISOString(),
           observaciones: (guestData.observaciones || '') + ' - [Respondido vía web]'
         })
@@ -468,6 +487,12 @@ export default function App() {
               </div>
               {attending && (
                 <div className="form-group" style={{ animation: 'slideUp 0.3s ease-out' }}>
+                  <label className="form-label">Nombre y apellidos (Titular) *</label>
+                  <input type="text" className="code-input" style={{textTransform: 'none', letterSpacing: 'normal'}} placeholder="Ej. Juan Pérez" value={nombreTitular} onChange={e => setNombreTitular(e.target.value)} required />
+                </div>
+              )}
+              {attending && (
+                <div className="form-group" style={{ animation: 'slideUp 0.3s ease-out' }}>
                   <label className="form-label">¿Vendrás con acompañante?</label>
                   <div className="radio-group" style={{ gridTemplateColumns: '1fr 1fr', marginBottom: '16px' }}>
                     <div className="radio-option">
@@ -494,6 +519,13 @@ export default function App() {
                       Para solicitar plazas adicionales, consúltanos en el <strong style={{ color: '#cc0000', textDecoration: 'underline' }}>976 33 22 29</strong>.
                     </div>
                   </div>
+                  
+                  {companions === 1 && (
+                    <div style={{ marginTop: '16px', animation: 'slideUp 0.3s ease-out' }}>
+                      <label className="form-label">Nombre y apellidos (Acompañante) *</label>
+                      <input type="text" className="code-input" style={{textTransform: 'none', letterSpacing: 'normal'}} placeholder="Ej. María García" value={nombreAcompanante} onChange={e => setNombreAcompanante(e.target.value)} required />
+                    </div>
+                  )}
                 </div>
               )}
               {attending && (
@@ -509,6 +541,18 @@ export default function App() {
                       <input type="radio" id="parking-no" name="parking" 
                         checked={needsParking === false} onChange={() => setNeedsParking(false)} />
                       <label htmlFor="parking-no">No</label>
+                    </div>
+                  </div>
+                  <div style={{
+                    display: 'flex', gap: '12px', alignItems: 'flex-start',
+                    background: '#fdfbf6', borderLeft: '4px solid #cc0000',
+                    padding: '16px', borderRadius: '2px 8px 8px 2px',
+                    marginTop: '16px'
+                  }}>
+                    <Car size={22} style={{ color: '#cc0000', flexShrink: 0, marginTop: '2px' }} />
+                    <div style={{ color: '#333', fontSize: '13.5px', lineHeight: '1.6' }}>
+                      Recomendamos encarecidamente el uso de <strong style={{ color: '#cc0000' }}>transporte público</strong> o taxi. 
+                      El evento cuenta con plazas muy limitadas (solo 60 disponibles).
                     </div>
                   </div>
                 </div>
