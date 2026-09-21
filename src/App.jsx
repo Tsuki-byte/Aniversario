@@ -304,7 +304,7 @@ export default function App() {
         <div className="act-grid">
           <div>
             <h2>El lugar donde<br/>la memoria cobra vida.</h2>
-            <p>Después de las Fiestas del Pilar y, previsiblemente, hasta finales de noviembre, el hall de la Facultad de Veterinaria acogerá una exposición dedicada a la historia de Embutidos Bernal.</p>
+            <p>A partir del día 20 de octubre y, previsiblemente, hasta finales de noviembre, el hall de la Facultad de Veterinaria acogerá una exposición dedicada a la historia de Embutidos Bernal.</p>
             <div className="location">
               <MapPin size={24} aria-hidden="true" />
               <div>
