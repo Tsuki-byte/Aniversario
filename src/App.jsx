@@ -5,6 +5,50 @@ import {
   MapPin, Calendar, Clock, Car, Shirt, Phone, Eye, ArrowRight, ArrowDown, Sparkles, UsersRound
 } from 'lucide-react'
 
+const Countdown = () => {
+  const targetDate = new Date("2026-11-10T17:00:00").getTime();
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 60000);
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  return (
+    <div className="countdown-container">
+      <span className="countdown-label">FALTAN</span>
+      <div className="countdown-values">
+        <div className="countdown-item">
+          <strong>{timeLeft.days.toString().padStart(2, '0')}</strong>
+          <small>DÍAS</small>
+        </div>
+        <div className="countdown-item">
+          <strong>{timeLeft.hours.toString().padStart(2, '0')}</strong>
+          <small>HORAS</small>
+        </div>
+        <div className="countdown-item">
+          <strong>{timeLeft.minutes.toString().padStart(2, '0')}</strong>
+          <small>MINUTOS</small>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function App() {
   // Guest state
   const [guestStatus, setGuestStatus] = useState('loading') // 'loading' | 'found' | 'notfound' | 'nocode'
@@ -223,6 +267,9 @@ export default function App() {
             <span><Clock size={24} aria-hidden="true" />Desde las 17:00 h</span>
             <span><MapPin size={24} aria-hidden="true" />Zaragoza</span>
           </div>
+          
+          <Countdown />
+
           <a className="primary-button" href="#confirmacion">
             Confirmar asistencia <ArrowDown size={24} aria-hidden="true" />
           </a>
@@ -620,7 +667,7 @@ export default function App() {
 
       <footer>
         <div className="footer-mark">75</div>
-        <img className="footer-logo footer-lockup" src="./bernal-hot-bull-cierre.png?v=2" alt="75.º aniversario de Embutidos Bernal y Hot Bull Saludable"/>
+        <img className="footer-logo footer-lockup" src="./bernal-hot-bull-cierre.png?v=4" alt="75.º aniversario de Embutidos Bernal y Hot Bull Saludable"/>
         <p>75 años de historia.<br/><strong>Y todavía nos queda mucho futuro por celebrar.</strong></p>
         
         {visitas !== null && (
