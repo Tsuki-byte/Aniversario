@@ -356,7 +356,7 @@ export default function App() {
             </div>
           </div>
           <blockquote>
-            “Una noche para celebrar a todas las personas que han hecho posible este camino.” 
+            “Una noche para celebrar con todas las personas que han hecho posible este camino y recordar a los que no nos pueden acompañar.” 
             <Sparkles size={24} aria-hidden="true" />
           </blockquote>
         </div>
