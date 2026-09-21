@@ -426,7 +426,7 @@ export default function App() {
             <time>22:00 h</time><span className="dot"></span>
             <div>
               <h3>Fiesta y música en directo</h3>
-              <p><MapPin size={24} aria-hidden="true" />Generación Pop, con su cantante Dani · Apertura de barra</p>
+              <p><MapPin size={24} aria-hidden="true" />Con el grupo Generación Pop y apertura de barra libre</p>
             </div>
           </article>
           <article className="party">
