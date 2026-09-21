@@ -771,3 +771,17 @@
   color: rgba(255, 255, 255, 0.3);
   position: relative;
 }
+
+/* ── Enlarged Footer Lockup Logo ──────────────────────────────────────────── */
+.footer-logo.footer-lockup {
+  width: min(1200px, 98vw) !important;
+  max-width: 1200px !important;
+  padding: 16px !important;
+}
+@media (max-width: 800px) {
+  .footer-logo.footer-lockup {
+    width: 98vw !important;
+    padding: 8px !important;
+  }
+}
+
