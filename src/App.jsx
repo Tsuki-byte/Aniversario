@@ -486,7 +486,7 @@ export default function App() {
           <article>
             <UsersRound size={24} aria-hidden="true" />
             <span>Aforo</span>
-            <strong style={{ fontWeight: 500, fontSize: '15px' }}>Por capacidad de la sala se limita a dos personas por empresa</strong>
+            <p style={{ fontSize: '13.5px', color: 'var(--text-wine-sub)', lineHeight: '1.4', marginTop: '2px' }}>Por capacidad de la sala se limita a dos personas por empresa</p>
           </article>
           <article>
             <Phone size={24} aria-hidden="true" />
