@@ -778,13 +778,16 @@
 .footer-logo.footer-lockup {
   width: min(100%, 1400px) !important;
   max-width: none !important;
-  transform: scale(1.15);
+  transform: scale(1.2);
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
 @media (max-width: 800px) {
   .footer-logo.footer-lockup {
-    transform: scale(1.25);
+    width: 120vw !important; /* Forzar un ancho mayor que la pantalla */
+    max-width: 120vw !important;
+    margin-left: -10vw !important; /* Centrarlo compensando el ancho extra */
+    transform: scale(1.4); /* Hacerlo visualmente más grande */
     margin-top: 2rem;
     margin-bottom: 2.5rem;
   }
