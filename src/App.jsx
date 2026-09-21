@@ -289,17 +289,17 @@ export default function App() {
         <div className="years">
           <div className="year-point">
             <span>1951</span>
-            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ mixBlendMode: 'darken', transform: 'translateY(8.9%) scale(1.47)' }} />
+            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ marginTop: '2.5rem', mixBlendMode: 'darken', transform: 'translateY(8.9%) scale(1.47)' }} />
           </div>
           <i></i>
           <div className="year-point">
             <span style={{ color: 'var(--wine)', fontWeight: 'bold' }}>75 años</span>
-            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" />
+            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ marginTop: '2.5rem' }} />
           </div>
           <i></i>
           <div className="year-point">
             <span>2026</span>
-            <img src="./anagrama-bernal-transparente.png" alt="Anagrama actual de Embutidos Bernal" style={{ transform: 'translateY(2.7%) scale(1.13)' }} />
+            <img src="./anagrama-bernal-transparente.png" alt="Anagrama actual de Embutidos Bernal" style={{ marginTop: '2.5rem', transform: 'translateY(2.7%) scale(1.13)' }} />
           </div>
         </div>
       </section>
