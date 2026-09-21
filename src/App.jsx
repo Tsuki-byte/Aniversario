@@ -289,17 +289,17 @@ export default function App() {
         <div className="years" style={{ alignItems: 'center' }}>
           <div className="year-point" style={{ position: 'relative' }}>
             <span style={{ position: 'absolute', top: '-2rem', left: 0, right: 0, textAlign: 'center' }}>1951</span>
-            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ width: 'clamp(110px, 16vw, 165px)', maxWidth: 'none', mixBlendMode: 'darken' }} />
+            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ mixBlendMode: 'darken', transform: 'translateY(10.5%) scale(1.2)' }} />
           </div>
           <i style={{ margin: 0 }}></i>
           <div className="year-point" style={{ position: 'relative' }}>
             <span style={{ position: 'absolute', top: '-2rem', left: 0, right: 0, textAlign: 'center', color: 'var(--wine)', fontWeight: 'bold' }}>75 años</span>
-            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ width: 'clamp(110px, 16vw, 165px)', maxWidth: 'none', borderRadius: '12px' }} />
+            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ borderRadius: '12px' }} />
           </div>
           <i style={{ margin: 0 }}></i>
           <div className="year-point" style={{ position: 'relative' }}>
             <span style={{ position: 'absolute', top: '-2rem', left: 0, right: 0, textAlign: 'center' }}>2026</span>
-            <img src="./anagrama-bernal-transparente.png" alt="Anagrama actual de Embutidos Bernal" style={{ width: 'clamp(65px, 9.5vw, 98px)', maxWidth: 'none' }} />
+            <img src="./anagrama-bernal-transparente.png" alt="Anagrama actual de Embutidos Bernal" style={{ transform: 'translateY(2.7%) scale(0.6)' }} />
           </div>
         </div>
       </section>
