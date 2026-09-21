@@ -439,7 +439,7 @@ export default function App() {
           <article className="party">
             <time>00:00–04:00 h</time><span className="dot"></span>
             <div>
-              <h3><img className="dj-logo" src="./dj-miguel-huerta.png?v=1" alt="MIGUELDEJOTA." /></h3>
+              <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>DJ <img className="dj-logo" src="./dj-miguel-huerta.png?v=1" alt="MIGUELDEJOTA." /></h3>
               <p><MapPin size={24} aria-hidden="true" />Finca Torreluna</p>
             </div>
           </article>

@@ -869,7 +869,5 @@
 .dj-logo {
   height: 28px;
   width: auto;
-  display: block;
   object-fit: contain;
-  margin-top: 4px;
 }
