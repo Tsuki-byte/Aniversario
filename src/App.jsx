@@ -289,7 +289,7 @@ export default function App() {
         <div className="years" style={{ alignItems: 'center' }}>
           <div className="year-point" style={{ position: 'relative' }}>
             <span style={{ position: 'absolute', top: '-2rem', left: 0, right: 0, textAlign: 'center' }}>1951</span>
-            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ mixBlendMode: 'darken', transform: 'translateY(8.5%) scale(1.4)' }} />
+            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ mixBlendMode: 'darken', transform: 'translateY(8.9%) scale(1.47)' }} />
           </div>
           <i style={{ margin: 0 }}></i>
           <div className="year-point" style={{ position: 'relative' }}>
