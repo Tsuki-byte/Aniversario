@@ -249,6 +249,67 @@
 
 .arrow-line { flex: 1; height: 1px; background: var(--border-cream); max-width: 80px; }
 
+/* ── Hero Countdown ───────────────────────────────────────────────────────── */
+.countdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.countdown-label {
+  color: #f5c64f; /* gold */
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-top: -1.8rem;
+}
+
+.countdown-values {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-item strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.countdown-item small {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #d8c8b8;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .countdown-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .countdown-label {
+    margin-top: 0;
+  }
+}
+
 /* ── Quote block ──────────────────────────────────────────────────────────── */
 .quote-block {
   padding: 40px 32px;
