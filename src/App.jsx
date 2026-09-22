@@ -59,7 +59,6 @@ export default function App() {
   const [companions,  setCompanions]  = useState(0)
   const [nombreTitular, setNombreTitular] = useState('')
   const [nombreAcompanante, setNombreAcompanante] = useState('')
-  const [needsParking, setNeedsParking] = useState(false)
   const [submitting,  setSubmitting]  = useState(false)
   const [formStep,    setFormStep]    = useState('form') // 'form' | 'success'
   const [error,       setError]       = useState('')
@@ -217,7 +216,7 @@ export default function App() {
           estado_asistencia: attending ? 'Confirmado' : 'Declinado',
           conf_titulares: attending ? 1 : 0,
           conf_acompanantes: attending ? parseInt(companions) : 0,
-          necesita_parking: needsParking,
+          necesita_parking: false,
           nombre_titular: attending ? nombreTitular.trim() : null,
           nombre_acompanante: (attending && companions === 1) ? nombreAcompanante.trim() : null,
           fecha_respuesta: new Date().toISOString(),
@@ -612,35 +611,6 @@ export default function App() {
                       <input type="text" className="code-input" style={{textTransform: 'none', letterSpacing: 'normal'}} placeholder="Ej. María García" value={nombreAcompanante} onChange={e => setNombreAcompanante(e.target.value)} required />
                     </div>
                   )}
-                </div>
-              )}
-              {attending && (
-                <div className="form-group" style={{ animation: 'slideUp 0.3s ease-out' }}>
-                  <label className="form-label">¿Necesitas plaza de aparcamiento?</label>
-                  <div className="radio-group" style={{ gridTemplateColumns: '1fr 1fr' }}>
-                    <div className="radio-option">
-                      <input type="radio" id="parking-yes" name="parking" 
-                        checked={needsParking === true} onChange={() => setNeedsParking(true)} />
-                      <label htmlFor="parking-yes">Sí</label>
-                    </div>
-                    <div className="radio-option">
-                      <input type="radio" id="parking-no" name="parking" 
-                        checked={needsParking === false} onChange={() => setNeedsParking(false)} />
-                      <label htmlFor="parking-no">No</label>
-                    </div>
-                  </div>
-                  <div style={{
-                    display: 'flex', gap: '12px', alignItems: 'flex-start',
-                    background: '#fdfbf6', borderLeft: '4px solid #cc0000',
-                    padding: '16px', borderRadius: '2px 8px 8px 2px',
-                    marginTop: '16px'
-                  }}>
-                    <Car size={22} style={{ color: '#cc0000', flexShrink: 0, marginTop: '2px' }} />
-                    <div style={{ color: '#333', fontSize: '13.5px', lineHeight: '1.6' }}>
-                      Recomendamos encarecidamente el uso de <strong style={{ color: '#cc0000' }}>transporte público</strong> o taxi. 
-                      El evento cuenta con plazas muy limitadas (solo 60 disponibles).
-                    </div>
-                  </div>
                 </div>
               )}
               {error && <div className="error-msg"><AlertCircle size={15} />{error}</div>}
