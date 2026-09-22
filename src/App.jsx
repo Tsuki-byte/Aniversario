@@ -117,7 +117,6 @@ export default function App() {
           if (estado === 'confirmado') { 
             setAttending(true);  
             setCompanions(data.conf_acompanantes || 0);
-            setNeedsParking(data.necesita_parking || false);
             setNombreTitular(data.nombre_titular || '');
             setNombreAcompanante(data.nombre_acompanante || '');
           }
@@ -159,7 +158,6 @@ export default function App() {
         if (estado === 'confirmado') { 
           setAttending(true);  
           setCompanions(data.conf_acompanantes || 0);
-          setNeedsParking(data.necesita_parking || false);
           setNombreTitular(data.nombre_titular || '');
           setNombreAcompanante(data.nombre_acompanante || '');
         }
