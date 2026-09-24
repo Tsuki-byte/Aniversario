@@ -311,6 +311,11 @@ export default function App() {
         <div className="years">
           <div className="year-point">
             <span>1951</span>
+            <img src="./firma-bernal.png" alt="Firma histórica de Embutidos Bernal" style={{ marginTop: '3.5rem', width: '180px', objectFit: 'contain' }} />
+          </div>
+          <i></i>
+          <div className="year-point">
+            <span>&nbsp;</span>
             <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ marginTop: '2.5rem', mixBlendMode: 'darken', transform: 'translateY(8.9%) scale(1.47)' }} />
           </div>
           <i></i>
