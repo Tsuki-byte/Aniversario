@@ -321,7 +321,13 @@ export default function App() {
           <i></i>
           <div className="year-point">
             <span>2026</span>
-            <img src="./anagrama-bernal-transparente.png" alt="Anagrama actual de Embutidos Bernal" style={{ marginTop: '2.5rem', transform: 'translateY(2.7%) scale(1.13)' }} />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '2.5rem', transform: 'translateY(2.7%) scale(1.13)' }}>
+              <img src="./anagrama-bernal-transparente.png" alt="Anagrama actual de Embutidos Bernal" style={{ height: 'auto', width: '75px', margin: 0 }} />
+              <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', marginLeft: '0.6rem', color: '#1a1a1a', fontFamily: 'Arial, Helvetica, sans-serif', fontWeight: 900, lineHeight: 0.9, letterSpacing: '-0.04em', fontSize: '1.4rem' }}>
+                <span>Embutidos</span>
+                <span>Bernal</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
