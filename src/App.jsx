@@ -321,7 +321,7 @@ export default function App() {
           <i></i>
           <div className="year-point">
             <span>2026</span>
-            <img src="./logo-bernal-2026.png" alt="Logotipo actual de Embutidos Bernal" style={{ marginTop: '-1.5rem', width: '290px', height: 'auto', transform: 'translateX(-23%)' }} />
+            <img src="./logo-bernal-2026.png" alt="Logotipo actual de Embutidos Bernal" style={{ marginTop: '-1.5rem', width: '305px', height: 'auto', transform: 'translateX(-23%)' }} />
           </div>
         </div>
       </section>
