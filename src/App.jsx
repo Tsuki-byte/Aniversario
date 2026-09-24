@@ -311,7 +311,7 @@ export default function App() {
         <div className="years">
           <div className="year-point">
             <span>1951</span>
-            <img src="./firma-bernal.png" alt="Firma histórica de Embutidos Bernal" style={{ marginTop: '3.5rem', width: '180px', objectFit: 'contain' }} />
+            <img src="./logo-letras-rojas.jpg" alt="Logo de letras rojas Embutidos Bernal" style={{ marginTop: '3.5rem', width: '220px', mixBlendMode: 'darken', objectFit: 'contain' }} />
           </div>
           <i></i>
           <div className="year-point">
