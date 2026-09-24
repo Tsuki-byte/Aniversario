@@ -304,7 +304,7 @@ export default function App() {
         <div className="intro-grid">
           <h2>Setenta y cinco años merecen algo más que una celebración.</h2>
           <div>
-            <p>Celebramos 75 años de historia, tres generaciones y el compromiso de una empresa familiar aragonesa que ha crecido junto a sus clientes, trabajadores, proveedores y colaboradores.</p>
+            <p>Celebramos 75 años de historia, tres generaciones y el compromiso de una empresa familiar aragonesa que ha crecido junto a sus clientes, trabajadores, proveedores, colaboradores e instituciones públicas y privadas.</p>
             <p>El 10 de noviembre reuniremos en Zaragoza a profesionales del canal HORECA y de alimentación de toda España, además de autoridades y amigos. La jornada incluirá una exposición en la Facultad de Veterinaria y una celebración en Torreluna, como reconocimiento a todas las personas que hacen posible nuestro sector.</p>
           </div>
         </div>
