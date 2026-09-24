@@ -311,22 +311,30 @@ export default function App() {
         <div className="years">
           <div className="year-point">
             <span>1951</span>
-            <img src="./logo-letras-rojas.jpg" alt="Logo de letras rojas Embutidos Bernal" style={{ marginTop: '3.5rem', width: '220px', mixBlendMode: 'darken', objectFit: 'contain' }} />
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+              <img src="./logo-letras-rojas.jpg" alt="Logo de letras rojas Embutidos Bernal" style={{ width: '220px', mixBlendMode: 'darken', objectFit: 'contain' }} />
+            </div>
           </div>
           <i></i>
           <div className="year-point">
             <span>&nbsp;</span>
-            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ marginTop: '2.5rem', mixBlendMode: 'darken', transform: 'translateY(8.9%) scale(1.47)' }} />
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+              <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ mixBlendMode: 'darken', transform: 'scale(1.47)' }} />
+            </div>
           </div>
           <i></i>
           <div className="year-point">
             <span style={{ color: 'var(--wine)', fontWeight: 'bold' }}>75 años</span>
-            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ marginTop: '2.5rem' }} />
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+              <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" />
+            </div>
           </div>
           <i></i>
           <div className="year-point">
             <span>2026</span>
-            <img src="./logo-bernal-2026.png" alt="Logotipo actual de Embutidos Bernal" style={{ marginTop: '-1.5rem', width: '305px', height: 'auto', transform: 'translateX(-23%)' }} />
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+              <img src="./logo-bernal-2026.png" alt="Logotipo actual de Embutidos Bernal" style={{ width: '305px', height: 'auto', transform: 'translateX(-23%)' }} />
+            </div>
           </div>
         </div>
       </section>
