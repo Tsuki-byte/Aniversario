@@ -348,8 +348,8 @@ export default function App() {
             <span className="card-number">75</span>
             <div>
               <h3>Museo Bernal</h3>
-              <p>Una muestra de maquinaria tradicional de mediados del siglo XX, acompañada de contenidos audiovisuales que recorren nuestra historia y evolución, desde nuestros orígenes hasta los nuevos productos, la innovación y los proyectos de futuro.</p>
-              <small>Pasado, presente y futuro de Embutidos Bernal.</small>
+              <p>Una muestra de la maquinaria original utilizada por nuestros antecesores a mediados del siglo XX, acompañada de un recorrido audiovisual por nuestra historia.</p>
+              <p style={{ marginTop: '0.5rem' }}>La exposición también mira hacia el mañana: innovación, nuevos productos y un espacio de divulgación con investigaciones científicas que respaldan el papel fundamental de los productos cárnicos dentro de una dieta equilibrada.</p>
             </div>
           </div>
         </div>
