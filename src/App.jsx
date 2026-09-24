@@ -305,7 +305,7 @@ export default function App() {
           <h2>Setenta y cinco años merecen algo más que una celebración.</h2>
           <div>
             <p>Celebramos 75 años de historia, tres generaciones y el compromiso de una empresa familiar aragonesa que ha crecido junto a sus clientes, trabajadores, proveedores, colaboradores e instituciones públicas y privadas.</p>
-            <p>El 10 de noviembre reuniremos en Zaragoza a profesionales del canal HORECA y de alimentación de toda España, además de autoridades y amigos. La jornada incluirá una exposición en la Facultad de Veterinaria y una celebración en Torreluna, como reconocimiento a todas las personas que hacen posible nuestro sector.</p>
+
           </div>
         </div>
         <div className="years">
@@ -370,7 +370,7 @@ export default function App() {
         <div className="celebration-layout">
           <div>
             <h2>Brindemos por todo lo vivido.</h2>
-            <p>El 10 de noviembre, a partir de las 18:00 h, continuaremos la celebración en los salones de la finca Torreluna. Una tarde-noche para encontrarnos, recordar nuestra historia y celebrar juntos el futuro.</p>
+            <p>El 10 de noviembre reuniremos en Zaragoza a profesionales del canal HORECA y de alimentación de toda España, además de autoridades y amigos. La jornada, que incluirá una exposición en la Facultad de Veterinaria, continuará a partir de las 18:00 h con una gran celebración en los salones de la finca Torreluna. Será una tarde-noche para encontrarnos, recordar nuestra historia y celebrar juntos el futuro, sirviendo como sincero reconocimiento a todas las personas que hacen posible nuestro sector.</p>
             <div className="location">
               <MapPin size={24} aria-hidden="true" />
               <div>
