@@ -344,7 +344,7 @@ export default function App() {
             </div>
           </div>
           <div className="museum-card">
-            <img className="museum-photo" src="./museo-bernal-historica.jpeg" alt="Fotografía histórica de la familia Bernal junto al antiguo carro de reparto"/>
+            <img className="museum-photo" src="./museo-bernal-historica-remastered.jpeg" alt="Fotografía histórica de la familia Bernal junto al antiguo carro de reparto"/>
             <span className="card-number">75</span>
             <div>
               <h3>Museo Bernal</h3>
