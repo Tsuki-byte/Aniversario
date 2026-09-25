@@ -322,10 +322,18 @@ export default function App() {
           </div>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '3rem', padding: '0 2vw', gap: '1rem' }}>
-          <img src="./logo-letras-rojas.jpg" alt="Logo de letras rojas Embutidos Bernal" style={{ width: '220px', mixBlendMode: 'darken', objectFit: 'contain' }} />
-          <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ mixBlendMode: 'darken', transform: 'scale(1.47)' }} />
-          <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{}} />
-          <img src="./logo-bernal-2026.png" alt="Logotipo actual de Embutidos Bernal" style={{ width: '305px', height: 'auto', transform: 'translateX(-23%)' }} />
+          <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <img src="./logo-letras-rojas.jpg" alt="Logo de letras rojas Embutidos Bernal" style={{ width: '220px', maxWidth: '100%', mixBlendMode: 'darken', objectFit: 'contain' }} />
+          </div>
+          <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ maxWidth: '100%', mixBlendMode: 'darken', transform: 'scale(1.47)' }} />
+          </div>
+          <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ maxWidth: '100%' }} />
+          </div>
+          <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <img src="./logo-bernal-2026.png" alt="Logotipo actual de Embutidos Bernal" style={{ width: '305px', maxWidth: '100%', height: 'auto', transform: 'translateX(-23%)' }} />
+          </div>
         </div>
       </section>
 
