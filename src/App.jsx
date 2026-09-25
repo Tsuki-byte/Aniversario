@@ -323,7 +323,7 @@ export default function App() {
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '3rem', padding: '0 2vw', gap: '1rem' }}>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <img src="./logo-letras-rojas.jpg" alt="Logo de letras rojas Embutidos Bernal" style={{ width: '220px', maxWidth: '100%', mixBlendMode: 'darken', objectFit: 'contain' }} />
+            <img src="./logo-letras-rojas.jpg" alt="Logo de letras rojas Embutidos Bernal" style={{ width: '275px', maxWidth: '100%', mixBlendMode: 'darken', objectFit: 'contain' }} />
           </div>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
             <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ width: '42%', maxWidth: '100%', mixBlendMode: 'darken', transform: 'scale(1.47)' }} />
