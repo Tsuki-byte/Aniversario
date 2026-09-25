@@ -329,7 +329,7 @@ export default function App() {
             <img src="./logo-bernal-blanco.jpg" alt="Logotipo histórico de Embutidos Bernal" style={{ width: '42%', maxWidth: '100%', mixBlendMode: 'darken', transform: 'scale(1.47)' }} />
           </div>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ width: '42%', maxWidth: '100%' }} />
+            <img src="./logo-bernal-negro.jpg" alt="Logo conmemorativo 75 años" style={{ width: '42%', maxWidth: '100%', transform: 'translateX(-20%)' }} />
           </div>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
             <img src="./logo-bernal-2026.png" alt="Logotipo actual de Embutidos Bernal" style={{ width: '305px', maxWidth: '100%', height: 'auto', transform: 'translateX(-23%)' }} />
